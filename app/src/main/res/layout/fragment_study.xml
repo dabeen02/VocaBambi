@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.wordbook.study.StudyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/english_container"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_marginStart="55dp"
+
+            android:layout_marginTop="94dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginBottom="237dp"
+            android:background="@drawable/bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                app:english="@{viewModel.word}"
+                app:studyEnglishVisibility="@{viewModel.studyType}" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/mean_container"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+
+            android:background="@drawable/bg"
+            app:layout_constraintBottom_toBottomOf="@+id/english_container"
+            app:layout_constraintEnd_toEndOf="@+id/english_container"
+            app:layout_constraintStart_toStartOf="@+id/english_container"
+            app:layout_constraintTop_toTopOf="@+id/english_container">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                app:means="@{viewModel.word}"
+                app:studyMeansVisibility="@{viewModel.studyType}" />
+
+        </FrameLayout>
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:background="@color/black"
+            android:text="이전"
+            android:onClick="@{() -> viewModel.loadPreviousWord()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="136dp"
+            android:background="@color/black"
+            android:onClick="@{() -> viewModel.setNextStudyType()}"
+            android:text="보기"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:background="@color/black"
+            android:text="다음"
+            android:onClick="@{() -> viewModel.loadNextWord()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

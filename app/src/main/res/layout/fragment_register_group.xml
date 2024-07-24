@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name = "grouptitle"
+            type = "com.example.wordbook.database.Group" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/registerGroupBtn"
+            android:layout_width="93dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="328dp"
+            android:text="추가"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="88dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginBottom="49dp"
+            android:ems="10"
+            android:text="단어장 이름"
+            app:layout_constraintBottom_toTopOf="@+id/registerGroupBtn"
+            app:layout_constraintEnd_toStartOf="@+id/inputGroupTitle"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/inputGroupTitle"
+            android:layout_width="264dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="44dp"
+            android:background="@drawable/border_under_edge"
+            android:ems="10"
+            android:hint="단어장 이름을 입력하세요"
+            android:maxLength="13"
+            android:inputType="textPersonName"
+            android:text="@{grouptitle.grouptitle}"
+            app:layout_constraintBottom_toTopOf="@+id/registerGroupBtn"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
